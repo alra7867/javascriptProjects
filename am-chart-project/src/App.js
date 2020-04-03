@@ -10,222 +10,280 @@ am4core.useTheme(am4themes_animated);
 am4core.useTheme(am4themes_kelly);
 
 class App extends Component {
+
+
   componentDidMount() {
-    let chart = am4core.create("chartdiv", am4charts.XYChart);
-chart.paddingRight = 100;
-chart.padddingLeft = 70;
-/* Add data */
-chart.data = [{
-  "category": "White (4)",
-  "value": 95,
-  // "target": 80
-}, {
-  "category": "African American (5)",
-  "value": 60,
-  // "target": 75
-}, {
-  "category": "Latino and Hispanic (15)",
-  "value": 82,
-  // "target": 96
-}, {
-  "category": "Asian (4)",
-  "value": 95,
-  // "target": 96
-}, {
-  "category": "Native American (3)",
-  "value": 74,
-  // "target": 96
-}, {
-  "category": "Male (15)",
-  "value": 81,
-  // "target": 96
-}, {
-  "category": "Female (10)",
-  "value": 90,
-  // "target": 96
-}, {
-  "category": "Non-Binary (6)",
-  "value": 74,
-  // "target": 96
-}];
+    am4core.useTheme(am4themes_animated);
 
-/* Create axes */
-let categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "category";
-// categoryAxis.renderer.minGridDistance = 10;
-// categoryAxis.renderer.grid.template.disabled = true;
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    chart.maskBullets = false;
+    
+    var xAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    var yAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+    
+    xAxis.dataFields.category = "weekday";
+    yAxis.dataFields.category = "hour";
+    
+    xAxis.renderer.grid.template.disabled = true;
+    xAxis.renderer.minGridDistance = 40;
+    
+    yAxis.renderer.grid.template.disabled = true;
+    yAxis.renderer.inversed = true;
+    yAxis.renderer.minGridDistance = 30;
+    
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.categoryX = "weekday";
+    series.dataFields.categoryY = "hour";
+    series.dataFields.value = "value";
+    series.sequencedInterpolation = true;
+    series.defaultState.transitionDuration = 100;
+    series.columns.template.width = am4core.percent(100);
+    series.columns.template.height = am4core.percent(100);
+    
+    series.heatRules.push({target:series.columns.template, property:"fill", min:am4core.color("#ffffff"), max:am4core.color("#692155")});
+    
+    var columnTemplate = series.columns.template;
+    columnTemplate.strokeWidth = 2;
+    columnTemplate.strokeOpacity = 1;
+    columnTemplate.stroke = am4core.color("#ffffff");
+    columnTemplate.tooltipText = "{weekday}, {hour}: {value.workingValue.formatNumber('#.')}";
+    
+    // heat legend
+    var heatLegend = chart.bottomAxesContainer.createChild(am4charts.HeatLegend);
+    heatLegend.width = am4core.percent(100);
+    heatLegend.series = series;
+    heatLegend.valueAxis.renderer.labels.template.fontSize = 9;
+    heatLegend.valueAxis.renderer.minGridDistance = 30;
+    
+    // heat legend behavior
+    series.columns.template.events.on("over", (event) => {
+      handleHover(event.target);
+    })
+    
+    series.columns.template.events.on("hit", (event) => {
+      handleHover(event.target);
+    })
+    
+    function handleHover(column) {
+      if (!isNaN(column.dataItem.value)) {
+        heatLegend.valueAxis.showTooltipAt(column.dataItem.value)
+      }
+      else {
+        heatLegend.valueAxis.hideTooltip();
+      }
+    }
+    
+    series.columns.template.events.on("out", (event) => {
+      heatLegend.valueAxis.hideTooltip();
+    })
+    
 
-let valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-// valueAxis.renderer.minGridDistance = 30;
-// valueAxis.renderer.grid.template.disabled = true;
-valueAxis.min = 0;
-valueAxis.max = 100;
-valueAxis.strictMinMax = true;
-valueAxis.renderer.labels.template.adapter.add("text", function(text) {
-  return text + "%";
-});
+chart.data = [
+	{
+		"hour": "White",
+		"weekday": "Coherence 1",
+		"value": 90
+	},
+	{
+		"hour": "African American",
+		"weekday": "Coherence 1",
+		"value": 88
+	},
+	{
+		"hour": "Hispanic",
+		"weekday": "Coherence 1",
+		"value": 44
+	},
+	{
+		"hour": "Asian",
+		"weekday": "Coherence 1",
+		"value": 90
+	},
+	{
+		"hour": "Native American",
+		"weekday": "Coherence 1",
+		"value": 78
+	},
+	{
+		"hour": "Non Binary",
+		"weekday": "Coherence 1",
+		"value": 88
+	},
+	{
+		"hour": "Male",
+		"weekday": "Coherence 1",
+		"value": 33
+	},
+	{
+		"hour": "Female",
+		"weekday": "Coherence 1",
+		"value": 12
+  },
+  {
+		"hour": "White",
+		"weekday": "Coherence 2",
+		"value": 33
+	},
+	{
+		"hour": "African American",
+		"weekday": "Coherence 2",
+		"value": 55
+	},
+	{
+		"hour": "Hispanic",
+		"weekday": "Coherence 2",
+		"value": 33
+	},
+	{
+		"hour": "Asian",
+		"weekday": "Coherence 2",
+		"value": 55
+	},
+	{
+		"hour": "Native American",
+		"weekday": "Coherence 2",
+		"value": 33
+	},
+	{
+		"hour": "Non Binary",
+		"weekday": "Coherence 2",
+		"value": 11
+	},
+	{
+		"hour": "Male",
+		"weekday": "Coherence 2",
+		"value": 33
+	},
+	{
+		"hour": "Female",
+		"weekday": "Coherence 2",
+		"value": 23
+	},
+  {
+		"hour": "White",
+		"weekday": "Coherence 3",
+		"value": 85
+	},
+	{
+		"hour": "African American",
+		"weekday": "Coherence 3",
+		"value": 25
+	},
+	{
+		"hour": "Hispanic",
+		"weekday": "Coherence 3",
+		"value": 40
+	},
+	{
+		"hour": "Asian",
+		"weekday": "Coherence 3",
+		"value": 72
+	},
+	{
+		"hour": "Native American",
+		"weekday": "Coherence 3",
+		"value": 56
+	},
+	{
+		"hour": "Non Binary",
+		"weekday": "Coherence 3",
+		"value": 76
+	},
+	{
+		"hour": "Male",
+		"weekday": "Coherence 3",
+		"value": 56
+	},
+	{
+		"hour": "Female",
+		"weekday": "Coherence 3",
+		"value": 29
+	},
+  {
+		"hour": "White",
+		"weekday": "Coherence 4",
+		"value": 85
+	},
+	{
+		"hour": "African American",
+		"weekday": "Coherence 4",
+		"value": 79
+	},
+	{
+		"hour": "Hispanic",
+		"weekday": "Coherence 4",
+		"value": 74
+	},
+	{
+		"hour": "Asian",
+		"weekday": "Coherence 4",
+		"value": 85
+	},
+	{
+		"hour": "Native American",
+		"weekday": "Coherence 4",
+		"value": 75
+	},
+	{
+		"hour": "Non Binary",
+		"weekday": "Coherence 4",
+		"value": 100
+	},
+	{
+		"hour": "Male",
+		"weekday": "Coherence 4",
+		"value": 83
+	},
+	{
+		"hour": "Female",
+		"weekday": "Coherence 4",
+		"value": 67
+	},
+  {
+		"hour": "White",
+		"weekday": "Relevance Q1",
+		"value": 83
+	},
+	{
+		"hour": "African American",
+		"weekday": "Relevance Q1",
+		"value": 33
+	},
+	{
+		"hour": "Hispanic",
+		"weekday": "Relevance Q1",
+		"value": 64
+	},
+	{
+		"hour": "Asian",
+		"weekday": "Relevance Q1",
+		"value": 74
+	},
+	{
+		"hour": "Native American",
+		"weekday": "Relevance Q1",
+		"value": 56
+	},
+	{
+		"hour": "Non Binary",
+		"weekday": "Relevance Q1",
+		"value": 72
+	},
+	{
+		"hour": "Male",
+		"weekday": "Relevance Q1",
+		"value": 65
+	},
+	{
+		"hour": "Female",
+		"weekday": "Relevance Q1",
+		"value": 56
+	}
 
-/* Create ranges */
-// function createRange(axis, from, to, color) {
-//   var range = axis.axisRanges.create();
-//   range.value = from;
-//   range.endValue = to;
-//   range.axisFill.fill = color;
-//   range.axisFill.fillOpacity = 0.8;
-//   range.label.disabled = true;
-// }
-
-// createRange(valueAxis, 0, 20, am4core.color("#19d228"));
-// createRange(valueAxis, 20, 40, am4core.color("#b4dd1e"));
-// createRange(valueAxis, 40, 60, am4core.color("#f4fb16"));
-// createRange(valueAxis, 60, 80, am4core.color("#f6d32b"));
-// createRange(valueAxis, 80, 100, am4core.color("#fb7116"));
-
-/* Create series */
-let series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueX = "value";
-series.dataFields.categoryY = "category";
-series.tooltipText = "{valueX.value}";
-chart.cursor = new am4charts.XYCursor()
-// series.columns.template.fill = am4core.color("#0095b6	");
-// series.columns.template.stroke = am4core.color("#0095b6	");
-series.columns.template.strokeWidth = 1;
-series.columns.template.strokeOpacity = 0.5;
-series.columns.template.height = am4core.percent(25);
-
-// let series2 = chart.series.push(new am4charts.StepLineSeries());
-// series2.dataFields.valueX = "target";
-// series2.dataFields.categoryY = "category";
-// series2.strokeWidth = 3;
-// series2.noRisers = true;
-// series2.startLocation = 0.15;
-// series2.endLocation = 0.85;
-// series2.tooltipText = "{valueX}"
-// series2.stroke = am4core.color("#000");
-
-
-
-
-
-
-
-
-// chart.cursor = new am4charts.XYCursor()
-// chart.cursor.lineX.disabled = false;
-// chart.cursor.lineY.disabled = true;
-
-// valueAxis.cursorTooltipEnabled = true;
+];
 
   }
 
-
-   componentDidMount() {
-    let chart = am4core.create("chartdiv", am4charts.XYChart);
-chart.paddingRight = 100;
-chart.padddingLeft = 70;
-/* Add data */
-chart.data = [{
-  "category": "White (4)",
-  "value": 95,
-  // "target": 80
-}, {
-  "category": "African American (5)",
-  "value": 60,
-  // "target": 75
-}, {
-  "category": "Latino and Hispanic (15)",
-  "value": 82,
-  // "target": 96
-}, {
-  "category": "Asian (4)",
-  "value": 95,
-  // "target": 96
-}, {
-  "category": "Native American (3)",
-  "value": 74,
-  // "target": 96
-}, {
-  "category": "Male (15)",
-  "value": 81,
-  // "target": 96
-}, {
-  "category": "Female (10)",
-  "value": 90,
-  // "target": 96
-}, {
-  "category": "Non-Binary (6)",
-  "value": 74,
-  // "target": 96
-}];
-
-/* Create axes */
-let categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "category";
-// categoryAxis.renderer.minGridDistance = 10;
-// categoryAxis.renderer.grid.template.disabled = true;
-
-let valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-// valueAxis.renderer.minGridDistance = 30;
-// valueAxis.renderer.grid.template.disabled = true;
-valueAxis.min = 0;
-valueAxis.max = 100;
-valueAxis.strictMinMax = true;
-valueAxis.renderer.labels.template.adapter.add("text", function(text) {
-  return text + "%";
-});
-
-/* Create ranges */
-// function createRange(axis, from, to, color) {
-//   var range = axis.axisRanges.create();
-//   range.value = from;
-//   range.endValue = to;
-//   range.axisFill.fill = color;
-//   range.axisFill.fillOpacity = 0.8;
-//   range.label.disabled = true;
-// }
-
-// createRange(valueAxis, 0, 20, am4core.color("#19d228"));
-// createRange(valueAxis, 20, 40, am4core.color("#b4dd1e"));
-// createRange(valueAxis, 40, 60, am4core.color("#f4fb16"));
-// createRange(valueAxis, 60, 80, am4core.color("#f6d32b"));
-// createRange(valueAxis, 80, 100, am4core.color("#fb7116"));
-
-/* Create series */
-let series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueX = "value";
-series.dataFields.categoryY = "category";
-series.tooltipText = "{valueX.value}";
-chart.cursor = new am4charts.XYCursor()
-// series.columns.template.fill = am4core.color("#0095b6	");
-// series.columns.template.stroke = am4core.color("#0095b6	");
-series.columns.template.strokeWidth = 1;
-series.columns.template.strokeOpacity = 0.5;
-series.columns.template.height = am4core.percent(25);
-
-// let series2 = chart.series.push(new am4charts.StepLineSeries());
-// series2.dataFields.valueX = "target";
-// series2.dataFields.categoryY = "category";
-// series2.strokeWidth = 3;
-// series2.noRisers = true;
-// series2.startLocation = 0.15;
-// series2.endLocation = 0.85;
-// series2.tooltipText = "{valueX}"
-// series2.stroke = am4core.color("#000");
-
-
-
-
-
-
-
-
-// chart.cursor = new am4charts.XYCursor()
-// chart.cursor.lineX.disabled = false;
-// chart.cursor.lineY.disabled = true;
-
-// valueAxis.cursorTooltipEnabled = true;
-
-  }
 
   componentWillUnmount() {
     if (this.chart) {
@@ -238,8 +296,8 @@ series.columns.template.height = am4core.percent(25);
     
       <div id ="mainDiv"  >
         <div id="question1" style={{padddingLeft:"50%", }}>
-        <h4 style= {{ marginLeft: '5rem' }}> Coherence 1: Today we used the Driving Question Board (DQB) to remind ourselves of what questions we had that we’ve answered in previous classes.
-      </h4>
+        <h2 style= {{ marginLeft: '5rem' }}> HeatMap
+      </h2>
         </div>
         <div id="chartdiv" style={{ width: "100%", height: "500px" }}>
 
