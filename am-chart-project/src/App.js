@@ -237,8 +237,12 @@ series.columns.template.height = am4core.percent(25);
     return (
     
       <div id ="mainDiv"  >
+         <div id="heading1" style={{padddingLeft:"50%", }}>
+        <h2 style= {{ marginLeft: '5rem' }}>  Histogram Breakdown by Gender and Race
+      </h2>
+        </div>
         <div id="question1" style={{padddingLeft:"50%", }}>
-        <h4 style= {{ marginLeft: '5rem' }}> Coherence 1: Today we used the Driving Question Board (DQB) to remind ourselves of what questions we had that we’ve answered in previous classes.
+        <h4 style= {{ marginLeft: '5rem' }}> Coherence Q1: Today we used the Driving Question Board (DQB) to remind ourselves of what questions we had that we’ve answered in previous classes.
       </h4>
         </div>
         <div id="chartdiv" style={{ width: "100%", height: "500px" }}>
