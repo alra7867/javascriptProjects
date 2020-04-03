@@ -80,206 +80,325 @@ class App extends Component {
 
 chart.data = [
 	{
-		"hour": "White",
-		"weekday": "Coherence 1",
+		"hour": "White(4)",
+		"weekday": "Coherence Q1",
 		"value": 90
 	},
 	{
-		"hour": "African American",
-		"weekday": "Coherence 1",
+		"hour": "African American(5)",
+		"weekday": "Coherence Q1",
 		"value": 88
 	},
 	{
-		"hour": "Hispanic",
-		"weekday": "Coherence 1",
+		"hour": "Hispanic(15)",
+		"weekday": "Coherence Q1",
 		"value": 44
 	},
 	{
-		"hour": "Asian",
-		"weekday": "Coherence 1",
+		"hour": "Asian(4)",
+		"weekday": "Coherence Q1",
 		"value": 90
 	},
 	{
-		"hour": "Native American",
-		"weekday": "Coherence 1",
+		"hour": "Native American(3)",
+		"weekday": "Coherence Q1",
 		"value": 78
 	},
 	{
-		"hour": "Non Binary",
-		"weekday": "Coherence 1",
+		"hour": "Non Binary(6)",
+		"weekday": "Coherence Q1",
 		"value": 88
 	},
 	{
-		"hour": "Male",
-		"weekday": "Coherence 1",
+		"hour": "Male(15)",
+		"weekday": "Coherence Q1",
 		"value": 33
 	},
 	{
-		"hour": "Female",
-		"weekday": "Coherence 1",
+		"hour": "Female(10)",
+		"weekday": "Coherence Q1",
 		"value": 12
   },
   {
-		"hour": "White",
-		"weekday": "Coherence 2",
+		"hour": "White(4)",
+		"weekday": "Coherence Q2",
 		"value": 33
 	},
 	{
-		"hour": "African American",
-		"weekday": "Coherence 2",
+		"hour": "African American(5)",
+		"weekday": "Coherence Q2",
 		"value": 55
 	},
 	{
-		"hour": "Hispanic",
-		"weekday": "Coherence 2",
+		"hour": "Hispanic(15)",
+		"weekday": "Coherence Q2",
 		"value": 33
 	},
 	{
-		"hour": "Asian",
-		"weekday": "Coherence 2",
+		"hour": "Asian(4)",
+		"weekday": "Coherence Q2",
 		"value": 55
 	},
 	{
-		"hour": "Native American",
-		"weekday": "Coherence 2",
+		"hour": "Native American(3)",
+		"weekday": "Coherence Q2",
 		"value": 33
 	},
 	{
-		"hour": "Non Binary",
-		"weekday": "Coherence 2",
+		"hour": "Non Binary(6)",
+		"weekday": "Coherence Q2",
 		"value": 11
 	},
 	{
-		"hour": "Male",
-		"weekday": "Coherence 2",
+		"hour": "Male(15)",
+		"weekday": "Coherence Q2",
 		"value": 33
 	},
 	{
-		"hour": "Female",
-		"weekday": "Coherence 2",
+		"hour": "Female(10)",
+		"weekday": "Coherence Q2",
 		"value": 23
 	},
   {
-		"hour": "White",
-		"weekday": "Coherence 3",
+		"hour": "White(4)",
+		"weekday": "Coherence Q3",
 		"value": 85
 	},
 	{
-		"hour": "African American",
-		"weekday": "Coherence 3",
+		"hour": "African American(5)",
+		"weekday": "Coherence Q3",
 		"value": 25
 	},
 	{
-		"hour": "Hispanic",
-		"weekday": "Coherence 3",
+		"hour": "Hispanic(15)",
+		"weekday": "Coherence Q3",
 		"value": 40
 	},
 	{
-		"hour": "Asian",
-		"weekday": "Coherence 3",
+		"hour": "Asian(4)",
+		"weekday": "Coherence Q3",
 		"value": 72
 	},
 	{
-		"hour": "Native American",
-		"weekday": "Coherence 3",
+		"hour": "Native American(3)",
+		"weekday": "Coherence Q3",
 		"value": 56
 	},
 	{
-		"hour": "Non Binary",
-		"weekday": "Coherence 3",
+		"hour": "Non Binary(6)",
+		"weekday": "Coherence Q3",
 		"value": 76
 	},
 	{
-		"hour": "Male",
-		"weekday": "Coherence 3",
+		"hour": "Male(15)",
+		"weekday": "Coherence Q3",
 		"value": 56
 	},
 	{
-		"hour": "Female",
-		"weekday": "Coherence 3",
+		"hour": "Female(10)",
+		"weekday": "Coherence Q3",
 		"value": 29
 	},
   {
-		"hour": "White",
-		"weekday": "Coherence 4",
+		"hour": "White(4)",
+		"weekday": "Coherence Q4",
 		"value": 85
 	},
 	{
-		"hour": "African American",
-		"weekday": "Coherence 4",
+		"hour": "African American(5)",
+		"weekday": "Coherence Q4",
 		"value": 79
 	},
 	{
-		"hour": "Hispanic",
-		"weekday": "Coherence 4",
+		"hour": "Hispanic(15)",
+		"weekday": "Coherence Q4",
 		"value": 74
 	},
 	{
-		"hour": "Asian",
-		"weekday": "Coherence 4",
+		"hour": "Asian(4)",
+		"weekday": "Coherence Q4",
 		"value": 85
 	},
 	{
-		"hour": "Native American",
-		"weekday": "Coherence 4",
+		"hour": "Native American(3)",
+		"weekday": "Coherence Q4",
 		"value": 75
 	},
 	{
-		"hour": "Non Binary",
-		"weekday": "Coherence 4",
+		"hour": "Non Binary(6)",
+		"weekday": "Coherence Q4",
 		"value": 100
 	},
 	{
-		"hour": "Male",
-		"weekday": "Coherence 4",
+		"hour": "Male(15)",
+		"weekday": "Coherence Q4",
 		"value": 83
 	},
 	{
-		"hour": "Female",
-		"weekday": "Coherence 4",
+		"hour": "Female(10)",
+		"weekday": "Coherence Q4",
 		"value": 67
 	},
   {
-		"hour": "White",
+		"hour": "White(4)",
 		"weekday": "Relevance Q1",
 		"value": 83
 	},
 	{
-		"hour": "African American",
+		"hour": "African American(5)",
 		"weekday": "Relevance Q1",
 		"value": 33
 	},
 	{
-		"hour": "Hispanic",
+		"hour": "Hispanic(15)",
 		"weekday": "Relevance Q1",
 		"value": 64
 	},
 	{
-		"hour": "Asian",
+		"hour": "Asian(4)",
 		"weekday": "Relevance Q1",
 		"value": 74
 	},
 	{
-		"hour": "Native American",
+		"hour": "Native American(3)",
 		"weekday": "Relevance Q1",
 		"value": 56
 	},
 	{
-		"hour": "Non Binary",
+		"hour": "Non Binary(6)",
 		"weekday": "Relevance Q1",
 		"value": 72
 	},
 	{
-		"hour": "Male",
+		"hour": "Male(15)",
 		"weekday": "Relevance Q1",
 		"value": 65
 	},
 	{
-		"hour": "Female",
+		"hour": "Female(10)",
 		"weekday": "Relevance Q1",
 		"value": 56
+	},
+  {
+		"hour": "White(4)",
+		"weekday": "Relevance Q2",
+		"value": 87
+	},
+	{
+		"hour": "African American(5)",
+		"weekday": "Relevance Q2",
+		"value": 37
+	},
+	{
+		"hour": "Hispanic(15)",
+		"weekday": "Relevance Q2",
+		"value": 67
+	},
+	{
+		"hour": "Asian(4)",
+		"weekday": "Relevance Q2",
+		"value": 82
+	},
+	{
+		"hour": "Native American(3)",
+		"weekday": "Relevance Q2",
+		"value": 58
+	},
+	{
+		"hour": "Non Binary(6)",
+		"weekday": "Relevance Q2",
+		"value": 75
+	},
+	{
+		"hour": "Male(15)",
+		"weekday": "Relevance Q2",
+		"value": 69
+	},
+	{
+		"hour": "Female(10)",
+		"weekday": "Relevance Q2",
+		"value": 58
+	},
+  {
+		"hour": "White(4)",
+		"weekday": "Contribution Q1",
+		"value": 91
+	},
+	{
+		"hour": "African American(5)",
+		"weekday": "Contribution Q1",
+		"value": 84
+	},
+	{
+		"hour": "Hispanic(15)",
+		"weekday": "Contribution Q1",
+		"value": 94
+	},
+	{
+		"hour": "Asian(4)",
+		"weekday": "Contribution Q1",
+		"value": 88
+	},
+	{
+		"hour": "Native American(3)",
+		"weekday": "Contribution Q1",
+		"value": 84
+	},
+	{
+		"hour": "Non Binary(6)",
+		"weekday": "Contribution Q1",
+		"value": 95
+	},
+	{
+		"hour": "Male(15)",
+		"weekday": "Contribution Q1",
+		"value": 89
+	},
+	{
+		"hour": "Female(10)",
+		"weekday": "Contribution Q1",
+		"value": 78
+	},
+  {
+		"hour": "White(4)",
+		"weekday": "Contribution Q2",
+		"value": 94
+	},
+	{
+		"hour": "African American(5)",
+		"weekday": "Contribution Q2",
+		"value": 83
+	},
+	{
+		"hour": "Hispanic(15)",
+		"weekday": "Contribution Q2",
+		"value": 91
+	},
+	{
+		"hour": "Asian(4)",
+		"weekday": "Contribution Q2",
+		"value": 94
+	},
+	{
+		"hour": "Native American(3)",
+		"weekday": "Contribution Q2",
+		"value": 95
+	},
+	{
+		"hour": "Non Binary(6)",
+		"weekday": "Contribution Q2",
+		"value": 98
+	},
+	{
+		"hour": "Male(15)",
+		"weekday": "Contribution Q2",
+		"value": 95
+	},
+	{
+		"hour": "Female(10)",
+		"weekday": "Contribution Q2",
+		"value": 86
 	}
-
 ];
 
   }
