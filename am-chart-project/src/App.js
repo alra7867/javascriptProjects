@@ -50,7 +50,13 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      <div id="question1" style={{padddingLeft:"50%", }}>
+      <h2 style= {{ marginLeft: '5rem' }}> Change over time student response since begnining
+    </h2>
+      </div>
       <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
+      </div>
     );
   }
 }
