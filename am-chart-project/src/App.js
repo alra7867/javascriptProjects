@@ -85,6 +85,8 @@ valueAxis.renderer.labels.template.adapter.add("text", function(text) {
 let series = chart.series.push(new am4charts.ColumnSeries());
 series.dataFields.valueX = "value";
 series.dataFields.categoryY = "category";
+series.tooltipText = "{valueX.value}";
+chart.cursor = new am4charts.XYCursor()
 // series.columns.template.fill = am4core.color("#0095b6	");
 // series.columns.template.stroke = am4core.color("#0095b6	");
 series.columns.template.strokeWidth = 1;
@@ -101,11 +103,18 @@ series.columns.template.height = am4core.percent(25);
 // series2.tooltipText = "{valueX}"
 // series2.stroke = am4core.color("#000");
 
-chart.cursor = new am4charts.XYCursor()
-chart.cursor.lineX.disabled = false;
-chart.cursor.lineY.disabled = true;
 
-valueAxis.cursorTooltipEnabled = true;
+
+
+
+
+
+
+// chart.cursor = new am4charts.XYCursor()
+// chart.cursor.lineX.disabled = false;
+// chart.cursor.lineY.disabled = true;
+
+// valueAxis.cursorTooltipEnabled = true;
 
   }
 
@@ -117,7 +126,6 @@ valueAxis.cursorTooltipEnabled = true;
 
   render() {
     return (
-     
       <div id="chartdiv" style={{ width: "100%", height: "500px" }}>
       </div>
     );
